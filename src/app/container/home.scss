@@ -1,0 +1,22 @@
+html,body,#app{
+	height:100%
+}
+body{
+    margin: 0;
+    pading: 0;
+	.home {
+	background: url(/images/bg.jpg) no-repeat;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	box-shadow: 2px 2px 2px #888888;
+   }
+   .hshs {
+    &::before{
+       content: '';
+       width: 20px;
+       height: 20px;
+       background: red;
+    }
+   }
+}
