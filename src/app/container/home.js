@@ -1,4 +1,6 @@
 import React from 'react';
+import { Container } from 'flux/utils';
+import HomeStore from '../stores/homeStore';
 
 import './home.scss';
 import Name from '../components/name';
@@ -6,12 +8,30 @@ import Menu from '../components/menu';
 import About from '../components/aboutMe';
 import Works from '../components/works';
 import Contact from '../components/contact';
+import homeAction from '../actions/homeAction'
 
-export class Home extends React.Component{
+console.log('HomeStore---', HomeStore)
+
+class Home extends React.Component{
+
+  static getStores() {
+    return [HomeStore];
+  }
+
+  static calculateState() {
+    return {
+      workList: HomeStore.getState().list
+    }
+  }
+
+  componentDidMount() {
+     homeAction.loadWorks();
+  }
+
 	render() {
 		const bg = {height: '100%'};
         const list = ['HOME', 'ABOUT ME', 'MY WORKS', 'CONTACT'];
-        const items = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'tem8'];
+        const items =  this.state.workList;
 		return (<div style={bg}>
 			       <Menu list={list}></Menu>
 			       <div className='home' id='home'>
@@ -38,3 +58,5 @@ export class Home extends React.Component{
 	}
 
 }
+
+export default Container.create(Home);
