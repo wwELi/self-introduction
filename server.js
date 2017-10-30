@@ -1,16 +1,31 @@
 const webpack = require('webpack');
 const middleware =  require('webpack-dev-middleware');
 const hot = require('webpack-hot-middleware');
+const bodyParser = require('body-parser');
 const express = require('express');
 const config = require('./webpack.config');
+const dummay = require('./dummay');
 
+const router = express.Router();
 const compile = webpack(config);
 const app = express();
+
+dummay(router);
 app.use(express.static('/'));
 app.use(middleware(compile, {
     publicPath: '/'
 }));
+
+app.use(bodyParser.urlencoded({
+	extended: false
+}))
+
+app.use(bodyParser.json());
+
 app.use(hot(compile));
+app.use((req, res, next) => {
+	router(req, res);
+})
 
 app.get('/', (req, res, next) => {
     console.log('-----');
