@@ -12,6 +12,11 @@ const Contact = ({items = []}) => {
 		   <div className='contact' id='contact'>
              <h2>GET IN TOUCH</h2>
              <a onClick={() => down()}>15202428824@163.com</a>
+			   <div className="concent_icon">
+				   <span className="icon iconfont icon-youxiang"></span>
+				   <span className="icon iconfont icon-wechat"></span>
+				   <span className="icon iconfont icon-github"></span>
+			   </div>
 		   </div>
 		  );
 };

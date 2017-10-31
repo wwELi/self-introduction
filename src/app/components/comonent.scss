@@ -196,5 +196,16 @@ body {
     color: #fff;
     margin: 0 auto;
     }
+    .concent_icon {
+      display: flex;
+      justify-content: space-around;
+      width: 50%;
+      margin: 0 auto;
+      margin-top: 200px;
+      > span{
+        font-size: 40px;
+        color: #389c33;
+      }
+    }
   }
 }

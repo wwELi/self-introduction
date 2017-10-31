@@ -34,7 +34,7 @@ var config = {
                 loaders: ["style-loader", "css-loader", "sass-loader"]
             },
             {
-                test: /\.(png|jpg|gif|woff|woff2)$/,
+                test: /\.(png|jpg|gif|woff|woff2|ttf|svg|eot)$/,
                 include: SRC_DIR,
                 loader: 'url-loader?limit=819&name=images/[name].[ext]'
             },
