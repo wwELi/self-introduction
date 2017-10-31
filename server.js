@@ -11,7 +11,7 @@ const compile = webpack(config);
 const app = express();
 
 dummay(router);
-app.use(express.static('/'));
+
 app.use(middleware(compile, {
     publicPath: '/'
 }));
@@ -26,7 +26,7 @@ app.use(hot(compile));
 app.use((req, res, next) => {
 	router(req, res);
 })
-
+app.use(express.static('/'));
 app.get('/', (req, res, next) => {
     console.log('-----');
     res.send('hello');

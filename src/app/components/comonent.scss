@@ -208,4 +208,37 @@ body {
       }
     }
   }
+  .carousel{
+    position: relative;
+    height: 300px;
+    width: 500px;
+    margin: 0 auto;
+    justify-content: center;
+    display: flex;
+    align-items: flex-end;
+    img {
+      width: 500px;
+      height: 300px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .chooseBtn{
+      position: relative;
+      z-index: 99;
+      bottom: 0;
+      display: flex;
+      justify-content: space-around;
+      span{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #fff;
+        margin: 10px;
+        &:hover{
+          background: #ff5000;
+        }
+      }
+    }
+  }
 }

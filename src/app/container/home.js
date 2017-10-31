@@ -7,8 +7,9 @@ import Name from '../components/name';
 import Menu from '../components/menu';
 import About from '../components/aboutMe';
 import Works from '../components/works';
+import Carousel from '../components/Carousel';
 import Contact from '../components/contact';
-import homeAction from '../actions/homeAction'
+import homeAction from '../actions/homeAction';
 
 console.log('HomeStore---', HomeStore)
 
@@ -53,6 +54,7 @@ class Home extends React.Component{
                       </div>
 			       </About>
 			       <Works items={items}></Works>
+                   <Carousel/>
 			       <Contact></Contact>
 			    </div>)
 	}
