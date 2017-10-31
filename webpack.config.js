@@ -6,6 +6,7 @@ var SRC_DIR = path.resolve(__dirname, "src");
 var htmlWebPackPlugin=require('html-webpack-plugin');
 
 var config = {
+    devtool: 'source-map',
     entry: SRC_DIR + "/main.js",
     output: {
         path: DIST_DIR + "/app",
@@ -41,6 +42,11 @@ var config = {
                 test:/\.json$/,
                 include: SRC_DIR,
                 loader:'json-loader?name=JSON/[name].json'
+            },
+            {
+                 test:/\.tpl\.html$/,
+                 include: SRC_DIR,
+                 loader: 'html-loader'
             }
         ]
     }

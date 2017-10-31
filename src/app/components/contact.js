@@ -1,9 +1,10 @@
 import React from 'react';
 import event from '../utils/event';
 import downFile from '../utils/downloadFile';
+import downExcel from '../utils/downExcel';
 
 function down() {
-    downFile('images/bg.jpg');
+    downExcel('b.docx');
 }
 
 const Contact = ({items = []}) => {
