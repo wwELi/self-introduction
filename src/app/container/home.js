@@ -10,9 +10,9 @@ import Works from '../components/works';
 import Carousel from '../components/Carousel';
 import Contact from '../components/contact';
 import homeAction from '../actions/homeAction';
+import log from '../utils/log';
 
-console.log('HomeStore---', HomeStore)
-
+@log
 class Home extends React.Component{
 
   static getStores() {
@@ -58,6 +58,13 @@ class Home extends React.Component{
 			       <Contact></Contact>
 			    </div>)
 	}
+
+   componentWillReceiveProps() {}
+    shouldComponentUpdate() {
+      return true;
+    }
+    componentWillUpdate() {}
+    componentDidUpdate() {}
 
 }
 

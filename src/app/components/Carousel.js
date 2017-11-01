@@ -2,6 +2,7 @@ import React from 'react';
 import img1 from '../assets/img1.jpg';
 import img2 from '../assets/img2.jpg';
 import img3 from '../assets/img3.jpg';
+import log from '../utils/log';
 
 const carouseHander = (refs) => {
   let interval = null;
@@ -73,5 +74,14 @@ export default class Carousel extends React.Component{
                 </div>)
 
     }
+
+    componentWillReceiveProps() {}
+    shouldComponentUpdate() {
+      return true;
+    }
+    componentWillUpdate() {}
+    componentDidUpdate() {}
+
+
 }
 
