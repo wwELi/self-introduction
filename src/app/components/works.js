@@ -8,7 +8,7 @@ const Works = ({items = []}) => {
                   <p>A selection of recent projects I've been working on: landing pages, websites, email marketing...</p>
               </article>
               <article className='items'>
-                 {items.map(i => ( <div className='chunk' data-desc={i}>
+                 {items.map(i => ( <div className='chunk' data-desc={i} key={i}>
                                        <div>VIEW</div>
                                    </div>))}
               </article>

@@ -33,8 +33,8 @@ export default class Menu extends React.Component{
                    <div ref = 'content' style={{display: 'none'}}>
                       <div className='bg'></div>
                       <div className='menu_list'>
-                         {this.props.list.map((item) => {
-                         	return <div onClick={() => this.scroll(item)}>{item}</div>;
+                         {this.props.list.map((item, index) => {
+                         	return <div key={index} onClick={() => this.scroll(item)}>{item}</div>;
                          })}
                       </div>
                    </div>
