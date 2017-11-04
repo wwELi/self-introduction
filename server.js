@@ -4,7 +4,7 @@ const hot = require('webpack-hot-middleware');
 const bodyParser = require('body-parser');
 const express = require('express');
 const config = require('./webpack.config');
-const dummay = require('./dummay');
+const dummay = require('./data/controller');
 
 const router = express.Router();
 const compile = webpack(config);
@@ -24,7 +24,8 @@ app.use(bodyParser.json());
 
 app.use(hot(compile));
 app.use((req, res, next) => {
-	router(req, res);
+	return router(req, res);
+	//next()
 })
 app.use(express.static('/'));
 app.get('/', (req, res, next) => {
