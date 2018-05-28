@@ -7,10 +7,14 @@ body {
     align-items: center;
     flex-direction: column;
     font-family:Arial,Helvetica,sans-serif;font-size:100%;
+      animation:flip 1s 0s 1 both;
+      >div{
+        animation:bounce 1s 0s 1 both;
+      }
     >div:first-child {
         font-size: 60px;
         color: #FFF;
-        animation: iconAnimation 3s ease-in 0s;
+        //animation: iconAnimation 3s ease-in 0s;
     }
     >div:last-child {
         margin-top: 20px;
@@ -47,7 +51,8 @@ body {
         }
     }
     .hide_icon {
-        animation: iconAnimation 0.2s ease-in 0.1s;
+        //animation: iconAnimation 0.2s ease-in 0.1s;
+      animation:rotateIn 1s 0s 1 both;
         @extend .icon;
         width: 40px;
         height: 32px;
@@ -61,11 +66,25 @@ body {
                 display: inline-block;
               }
     }
+    @keyframes rotateIn {
+      from {
+        transform-origin: center;
+        transform: rotate3d(0, 0, 1, -200deg);
+        opacity: 0;
+      }
+
+      to {
+        transform-origin: center;
+        transform: none;
+        opacity: 1;
+      }
+    }
+
     @keyframes iconAnimation {
         0% {
            transform: scale(0.4);
         }
-       
+
         100%{
            transform: scale(1.5);
         }
@@ -144,6 +163,7 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
+
       >div{
              padding: 15px;
              background: #F10061;
@@ -163,8 +183,34 @@ body {
       }
     }
     .chunk:hover{
+      //animation:flipInY 1s 0s 1 both;
        &:after{
          display: none;
+      }
+    }
+    @keyframes flipInY {
+      from {
+        transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+        animation-timing-function: ease-in;
+        opacity: 0;
+      }
+
+      40% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+        animation-timing-function: ease-in;
+      }
+
+      60% {
+        transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+        opacity: 1;
+      }
+
+      80% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+      }
+
+      to {
+        transform: perspective(400px);
       }
     }
     .items{
@@ -195,6 +241,10 @@ body {
     background: #F10061;
     color: #fff;
     margin: 0 auto;
+      cursor: pointer;
+      &:hover {
+        animation:headShake 1s 0s 1 both;
+      }
     }
     .concent_icon {
       display: flex;
@@ -207,6 +257,32 @@ body {
         color: #389c33;
       }
     }
+    @keyframes headShake {
+      0% {
+        transform: translateX(0);
+      }
+
+      6.5% {
+        transform: translateX(-6px) rotateY(-9deg);
+      }
+
+      18.5% {
+        transform: translateX(5px) rotateY(7deg);
+      }
+
+      31.5% {
+        transform: translateX(-3px) rotateY(-5deg);
+      }
+
+      43.5% {
+        transform: translateX(2px) rotateY(3deg);
+      }
+
+      50% {
+        transform: translateX(0);
+      }
+    }
+
   }
   .carousel{
     position: relative;
@@ -243,7 +319,7 @@ body {
     }
     .nextPrev {
     z-index: 99;
-   
+
     position: absolute;
     top: 139px;
     left: 0;

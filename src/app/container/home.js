@@ -72,7 +72,7 @@ class Home extends React.Component {
                 }}>add
                 </button>
                 {console.log(this.state)}
-                {this.state.comments.map((val, inx) => {
+                {this.state.comments && this.state.comments.map((val, inx) => {
                     return <div key={inx}>{val.comment}
                         <button onClick={() => {this.removeComment()}}></button>
                     </div>
